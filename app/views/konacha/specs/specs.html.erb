@@ -27,7 +27,10 @@
           assert = chai.assert;
 
       window.onload = function () {
-        mocha.run();
+        // When running with RequireJS, all of your scripts and dependencies may
+        // have not loaded yet. So, wait a second after window load to run.
+        //mocha.run();
+        window.setTimeout(mocha.run, 1000);
       };
     </script>
     <%= spec_include_tag *@specs %>
