@@ -1,3 +1,5 @@
+require 'requirejs/rails'
+
 module Konacha
   class Engine < Rails::Engine
     config.konacha = ActiveSupport::OrderedOptions.new
