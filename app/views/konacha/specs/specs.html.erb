@@ -6,16 +6,10 @@
     <%= stylesheet_link_tag "mocha",   :debug => false %>
     <%= stylesheet_link_tag "konacha", :debug => false %>
     <%= javascript_tag do %>
+      window.KonachaMode = "<%= Konacha.mode %>";
       window.KonachaRequireJS = {
           deps: <%= raw dependency_modules %>,
           specs: <%= raw spec_modules(*@specs) %>
-      };
-      var require = {
-          baseUrl: "/assets",
-          shim: {
-              "konacha/<%= Konacha.mode %>": ["konacha"],
-              "konacha_config": ["konacha/<%= Konacha.mode %>"]
-          },
       };
     <% end %>
     <%= requirejs_include_tag 'konacha_loader' %>

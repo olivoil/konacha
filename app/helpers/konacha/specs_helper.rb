@@ -15,8 +15,9 @@ module Konacha
     end
 
     def dependency_modules
-      deps = ['mocha', 'chai', "konacha/#{Konacha.mode}", "konacha"]
+      deps = ['mocha', 'chai', 'konacha', "konacha/#{Konacha.mode}"]
       deps << 'konacha_config' if Rails.application.assets.find_asset('konacha_config')
+      deps
     end
   end
 end
