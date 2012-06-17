@@ -5,10 +5,19 @@
     <title>Konacha Tests</title>
     <%= stylesheet_link_tag "mocha",   :debug => false %>
     <%= stylesheet_link_tag "konacha", :debug => false %>
-    <%= javascript_include_tag "mocha", "chai", "konacha/#{Konacha.mode}", :debug => false %>
-    <%= javascript_include_tag("konacha_config", :debug => false) if Rails.application.assets.find_asset('konacha_config') %>
-    <%= javascript_include_tag "konacha", :debug => false %>
-    <%= spec_include_tag *@specs %>
+    <%= javascript_tag do %>
+      window.KonachaRequireJS = {
+          deps: <%= raw dependency_modules %>,
+          specs: <%= raw spec_modules(*@specs) %>
+      };
+      var require = {
+          baseUrl: "/assets",
+          shim: {
+              "konacha/<%= Konacha.mode %>": ["konacha"],
+              "konacha_config": ["konacha/<%= Konacha.mode %>"]
+          },
+      };
+    <% end %>
     <%= requirejs_include_tag 'konacha_loader' %>
   </head>
   <body>
