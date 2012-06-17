@@ -1,13 +1,10 @@
 require 'spec_helper'
 
 describe "konacha/specs/specs" do
-  xit "includes konacha JS for given mode" do
-    assign(:specs, [])
-    Konacha.should_receive(:mode).any_number_of_times { :runner }
-
+  it "includes konacha JS loader" do
     render
 
-    rendered.should have_css("script[src='/assets/konacha/runner.js']")
+    rendered.should have_css("script[src='/assets/require.js']")
   end
 
   def asset_double(asset_name, dependencies = [])
