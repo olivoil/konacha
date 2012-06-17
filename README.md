@@ -1,5 +1,7 @@
 # Konacha
 
+*This is an unoffical fork of Konacha for use with [requirejs-rails](https://github.com/jwhitley/requirejs-rails).*
+
 [![Build Status](https://secure.travis-ci.org/jfirebaugh/konacha.png?branch=master)](http://travis-ci.org/jfirebaugh/konacha)
 [![Dependency Status](https://gemnasium.com/jfirebaugh/konacha.png)](https://gemnasium.com/jfirebaugh/konacha)
 
